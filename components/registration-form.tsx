@@ -24,7 +24,6 @@ export function RegistrationForm() {
     year: "",
     department: "",
     partnerEmail: "",
-    dietaryRestrictions: "",
     emergencyContact: "",
     agreeToTerms: false,
   })
@@ -138,13 +137,13 @@ export function RegistrationForm() {
 
                 <div className="space-y-2">
                   <Label htmlFor="studentId" className="text-silver-200">
-                    Student ID
+                    Student Roll Number
                   </Label>
                   <Input
                     id="studentId"
                     value={formData.studentId}
                     onChange={(e) => handleInputChange("studentId", e.target.value)}
-                    placeholder="Your student ID"
+                    placeholder="Your student Roll Number"
                     className="bg-slate-700/50 border-silver-600 text-silver-100 placeholder:text-silver-400 focus:border-gold-400"
                     required
                   />
@@ -176,11 +175,10 @@ export function RegistrationForm() {
                       <SelectValue placeholder="Select year" />
                     </SelectTrigger>
                     <SelectContent className="bg-slate-800 border-silver-600">
-                      <SelectItem value="freshman">Freshman</SelectItem>
-                      <SelectItem value="sophomore">Sophomore</SelectItem>
-                      <SelectItem value="junior">Junior</SelectItem>
-                      <SelectItem value="senior">Senior</SelectItem>
-                      <SelectItem value="graduate">Graduate</SelectItem>
+                      <SelectItem value="foundational">Foundational</SelectItem>
+                      <SelectItem value="diploma">Diploma</SelectItem>
+                      <SelectItem value="bsc">Degree (BSC)</SelectItem>
+                      <SelectItem value="bs">Degree (BS)</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -197,6 +195,15 @@ export function RegistrationForm() {
                     className="bg-slate-700/50 border-silver-600 text-silver-100 placeholder:text-silver-400 focus:border-gold-400"
                     required
                   />
+                  <Select onValueChange={(e) => handleInputChange("department", e)}>
+                    <SelectTrigger className="bg-slate-700/50 border-silver-600 text-silver-100 focus:border-gold-400">
+                      <SelectValue placeholder="Select Department" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-slate-800 border-silver-600">
+                      <SelectItem value="ds">Data Science</SelectItem>
+                      <SelectItem value="es">Electronic Systems</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
             </div>
@@ -230,19 +237,6 @@ export function RegistrationForm() {
             {/* Additional Information */}
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-gold-300">Additional Details</h3>
-
-              <div className="space-y-2">
-                <Label htmlFor="dietaryRestrictions" className="text-silver-200">
-                  Dietary Restrictions (Optional)
-                </Label>
-                <Textarea
-                  id="dietaryRestrictions"
-                  value={formData.dietaryRestrictions}
-                  onChange={(e) => handleInputChange("dietaryRestrictions", e.target.value)}
-                  placeholder="Any dietary restrictions or allergies..."
-                  className="bg-slate-700/50 border-silver-600 text-silver-100 placeholder:text-silver-400 focus:border-gold-400 min-h-[80px]"
-                />
-              </div>
 
               <div className="space-y-2">
                 <Label htmlFor="emergencyContact" className="text-silver-200">
